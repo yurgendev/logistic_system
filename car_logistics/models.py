@@ -129,5 +129,5 @@ class Lot(models.Model):
 
     def get_wait_days(self):
         if self.status in ['new', 'dispatched', 'terminal', 'loading']:
-            return (timezone.now() - self.status_changed).days
-        return 0
+            return (timezone.now() - self.status_changed).days + 1
+        return 1

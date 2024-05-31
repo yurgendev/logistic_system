@@ -6,7 +6,7 @@ from django.contrib import messages
 
 @admin.register(Lot)
 class LotAdmin(admin.ModelAdmin):
-    list_display = ['auto', 'vin', 'lot', 'customer', 'status', 'date_purchase', 'payment_date', 'date_warehouse',
+    list_display = ['auto', 'vin', 'lot', 'customer', 'status', 'get_wait_days', 'date_purchase', 'payment_date', 'date_warehouse',
                     'date_booking', 'data_container', 'date_unloaded', 'account', 'auction', 'company', 'price', 'keys']
     # list_filter = ['wait']
     search_fields = ['auto', 'vin', 'lot', 'account']
