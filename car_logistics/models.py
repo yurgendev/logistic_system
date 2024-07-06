@@ -66,8 +66,8 @@ class Lot(models.Model):
         ('archived', 'Archived'),
     ]
 
-    bos = models.FileField(upload_to=unique_upload_path)
-    photo_a = models.ImageField(upload_to=unique_upload_path)
+    bos = models.FileField(upload_to=unique_upload_path, blank=True)
+    photo_a = models.ImageField(upload_to=unique_upload_path, blank=True)
     photo_d = models.ImageField(upload_to=unique_upload_path, blank=True)
     photo_w = models.ImageField(upload_to=unique_upload_path, blank=True)
     video = models.FileField(upload_to=unique_upload_path, blank=True)
