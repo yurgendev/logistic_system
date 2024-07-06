@@ -9,7 +9,7 @@ class LotAdmin(admin.ModelAdmin):
     list_display = ['auto', 'vin', 'lot', 'customer', 'status', 'get_wait_days', 'date_purchase', 'payment_date', 'date_warehouse',
                     'date_booking', 'data_container', 'date_unloaded', 'account', 'auction', 'company', 'price', 'keys']
     # list_filter = ['wait']
-    search_fields = ['auto', 'vin', 'lot', 'account']
+    search_fields = ['vin', 'auto', 'lot', 'customer__name']  # Добавляем 'customer__name' для поиска по имени клиента
     readonly_fields = ['status_changed']
     list_editable = ['status']
     list_display_links = ['auto', 'vin', 'lot']

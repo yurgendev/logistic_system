@@ -66,7 +66,7 @@ class Lot(models.Model):
         ('archived', 'Archived'),
     ]
 
-    bos = models.FileField(upload_to=unique_upload_path, blank=True)
+    bos = models.FileField(upload_to=unique_upload_path, blank=True, db_index=True)
     photo_a = models.ImageField(upload_to=unique_upload_path, blank=True)
     photo_d = models.ImageField(upload_to=unique_upload_path, blank=True)
     photo_w = models.ImageField(upload_to=unique_upload_path, blank=True)
@@ -83,13 +83,13 @@ class Lot(models.Model):
     date_booking = models.DateField(null=True, blank=True)
     data_container = models.DateField(null=True, blank=True)
     date_unloaded = models.DateField(null=True, blank=True)
-    auto = models.CharField(max_length=255, blank=False)
-    vin = models.CharField(max_length=17, unique=True, blank=False)
-    lot = models.CharField(max_length=255, unique=True, blank=False)
+    auto = models.CharField(max_length=255, blank=False, db_index=True)
+    vin = models.CharField(max_length=17, unique=True, blank=False, db_index=True)
+    lot = models.CharField(max_length=255, unique=True, blank=False, db_index=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     auction = models.ForeignKey(Auction, on_delete=models.CASCADE)
     url = models.URLField(max_length=200, blank=False)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, blank=False)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, blank=False, db_index=True)
     warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE, blank=True, null=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=False)
