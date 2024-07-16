@@ -99,6 +99,24 @@ class Lot(models.Model):
     container = models.CharField(max_length=255)
     ata_data = models.DateField(null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.auto} - {self.vin}, {self.lot}. "
+
+# class LotIterator:
+#     def __init__(self, lots):
+#         self._lots = lots
+#         self._index = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self._index < len(self._lots):
+#             result = self._lots[self._index]
+#             self._index += 1
+#             return result
+#         raise StopIteration
+
     def update_status(self, new_status):
         self.status = new_status
         self.status_changed = timezone.now()
