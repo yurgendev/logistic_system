@@ -18,11 +18,20 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from car_logistics.views import main
+from car_logistics.views import main, all_cars, new,  dispatched, terminal, loading, shipped, unloaded, archived
+
 
 urlpatterns = [
     path('', main),
     path('admin/', admin.site.urls),
+    path('all-cars/', all_cars, name='all_cars'),
+    path('new/', new, name='new'),
+    path('dispatched/', dispatched, name='dispatched'),
+    path('terminal/', terminal, name='terminal'),
+    path('loading/', loading, name='loading'),
+    path('shipped/', shipped, name='shipped'),
+    path('unloaded/', unloaded, name='unloaded'),
+    path('archived/', archived, name='archived'),
 ]
 
 if settings.DEBUG:

@@ -146,6 +146,6 @@ class Lot(models.Model):
         super().save(*args, **kwargs)
 
     def get_wait_days(self):
-        if self.status in ['new', 'dispatched', 'terminal', 'loading']:
+        if self.status in ['new', 'dispatched', 'terminal', 'loading', 'shipped', 'unloaded']:
             return (timezone.now() - self.status_changed).days + 1
         return 1
